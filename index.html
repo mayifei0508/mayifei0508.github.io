@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>马逸菲 · 个人主页</title>
+    <title>Ma Yifei · Personal Website</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -21,7 +21,9 @@
             display: flex;
             gap: 2rem;
             justify-content: center;
+            align-items: center;
             border-bottom: 1px solid #f0ebfa;
+            position: relative;
         }
         .nav-link {
             text-decoration: none;
@@ -36,6 +38,25 @@
             color: #0a0a23;
         }
         .nav-link.active {
+            background: #8a6fe8;
+            color: white;
+        }
+        
+        /* 语言切换按钮 */
+        .lang-switch {
+            position: absolute;
+            right: 2rem;
+            background: #f0ebfa;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a4a6a;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-switch:hover {
             background: #8a6fe8;
             color: white;
         }
@@ -75,8 +96,8 @@
         
         /* 照片样式 */
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #f0ebfa;
@@ -84,226 +105,232 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏（5页版） -->
+    <!-- 导航栏（带语言切换） -->
     <div class="navbar">
-        <a href="#" class="nav-link active" onclick="switchPage('home')">🏠 首页</a>
-        <a href="#" class="nav-link" onclick="switchPage('about')">📌 关于我</a>
-        <a href="#" class="nav-link" onclick="switchPage('experience')">📋 经历</a>
-        <a href="#" class="nav-link" onclick="switchPage('hobby')">🎨 爱好</a>
-        <a href="#" class="nav-link" onclick="switchPage('honor')">🏆 荣誉</a>
+        <a href="#" class="nav-link active" onclick="switchPage('home')" data-cn="🏠 首页" data-en="🏠 Home">🏠 Home</a>
+        <a href="#" class="nav-link" onclick="switchPage('about')" data-cn="📌 关于我" data-en="📌 About">📌 About</a>
+        <a href="#" class="nav-link" onclick="switchPage('experience')" data-cn="📋 经历" data-en="📋 Experience">📋 Experience</a>
+        <a href="#" class="nav-link" onclick="switchPage('hobby')" data-cn="🎨 爱好" data-en="🎨 Hobby">🎨 Hobby</a>
+        <a href="#" class="nav-link" onclick="switchPage('honor')" data-cn="🏆 荣誉" data-en="🏆 Honor">🏆 Honor</a>
+        
+        <!-- 语言切换按钮（默认显示“中”因为当前是英文） -->
+        <button class="lang-switch" onclick="toggleLanguage()">🌐 中</button>
     </div>
 
-    <!-- 首页（精简版：头部+照片+紫色框摘要+坐标） -->
+    <!-- 首页（默认英文） -->
     <div id="home" class="page active">
         <div style="display: flex; align-items: center; gap: 3.0rem; margin-bottom: 2.0rem;">
-    <!-- 照片位 - 绝对路径版 -->
-    <div>
-        <img src="me.jpg" alt="马逸菲" class="profile-img" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid #f0ebfa;">
-    </div>            
-            <!-- 姓名+身份 -->
             <div>
-                <h1 style="margin-bottom: 0.2rem;">Hi,I'm 马逸菲</h1>
-                <div style="font-size: 1.1rem; color:#6b6b8b ; margin-bottom: 0.3rem;">
-                    🎓 安徽大学数学建模协会 · 成员
-                </div>
-                <div style="font-size: 1rem; color: #6b6b8b;">
-                    安徽大学大数据与统计学院 · 数据科学与大数据技术专业
-                </div>
+                <img src="me.jpg" alt="Ma Yifei" class="profile-img">
+            </div>            
+            <div>
+                <h1 style="margin-bottom: 0.2rem;" data-cn="Hi, I'm 马逸菲" data-en="Hi, I'm Ma Yifei">Hi, I'm Ma Yifei</h1>
+                <div style="font-size: 1.1rem; color:#6b6b8b ; margin-bottom: 0.3rem;" data-cn="🎓 安徽大学数学建模协会 · 成员" data-en="🎓 Anhui University Math Modeling Association · Member">🎓 Anhui University Math Modeling Association · Member</div>
+                <div style="font-size: 1rem; color: #6b6b8b;" data-cn="安徽大学大数据与统计学院 · 数据科学与大数据技术专业" data-en="School of Big Data & Statistics · Data Science and Big Data Technology">School of Big Data & Statistics · Data Science and Big Data Technology</div>
             </div>
         </div>
         
-        <!-- 联系方式 -->
         <div style="margin: 1rem 0 2rem 0; display: flex; gap: 2rem; flex-wrap: wrap; color: #4a4a6a; border-bottom: 1px solid #edf2f7; padding-bottom: 1.5rem;">
-            <span>      📧 2565715275@qq.com</span>
+            <span>📧 2565715275@qq.com</span>
         </div>
         
-             <!-- 一句话收尾 -->
-        <div style="text-align: center; margin: 2rem 0 1rem 0; color: #8a6fe8; font-style: italic;">
+        <div style="text-align: center; margin: 2rem 0 1rem 0; color: #8a6fe8; font-style: italic;" data-cn="“Hakuna Matata.”🦁" data-en="“Hakuna Matata.”🦁">
             “Hakuna Matata.”🦁
         </div>
 
-        <div class="footer">
-            ⚡ 首页 · 正在了解我中……
+        <div class="footer" data-cn="⚡ 首页 · 正在了解我中……" data-en="⚡ Home · Getting to know me...">
+            ⚡ Home · Getting to know me...
         </div>
     </div>
 
-    <!-- 关于我页（完整版） -->
+    <!-- 关于我页（默认英文） -->
     <div id="about" class="page">
-        <h1>📌 关于我</h1>
-        <div class="subtitle">完整版 · 不止是简历</div>
+        <h1 data-cn="📌 关于我" data-en="📌 About Me">📌 About Me</h1>
+        <div class="subtitle" data-cn="完整版 · 不止是简历" data-en="More than a resume">More than a resume</div>
         
-<h2 style="margin-bottom: 0.5rem;">😉摘要</h2>
+        <h2 style="margin-bottom: 0.5rem;" data-cn="😉摘要" data-en="😉 Summary">😉 Summary</h2>
         <div style="background: #f7f5fc; border-radius: 20px; padding: 1.5rem; margin: 0.5rem 0 2rem 0;">
-            <p style="font-size: 1rem; line-height: 1.7; color: #1e1e2f;">
+            <p style="font-size: 1rem; line-height: 1.7; color: #1e1e2f;" data-cn="
                 我是安徽大学25级数据科学与大数据技术专业的学生，是校数学建模协会的成员。<br><br>
                 在竞赛方面，我以大一新生的身份参与了2026美国大学生数学建模竞赛，担任编程手。目前正在备战2026年4月的蓝桥杯。<br><br>
                 我对机器学习，自然语言处理等方向有浓厚的兴趣，目前正在逐步深入了解，期待未来能做出真正有用的东西。在数学建模中，我与队友一起作战，习得文献检索能力、培养建模思维、学习LaTeX技能，这让我对未来的研究充满期待。<br><br>
                 我希望我可以把每一件小事做扎实——保持绩点、提前预习、独立完成项目……我相信，规划感和执行力，比暂时的成果更重要。
+            " data-en="
+                I'm a first-year Data Science student at Anhui University, member of the Math Modeling Association.<br><br>
+                I participated in the 2026 MCM/ICM as a programmer, and I'm now preparing for the Blue Bridge Cup in April 2026.<br><br>
+                I'm deeply interested in Machine Learning and NLP, and I'm gradually exploring these fields. Math modeling taught me literature search, modeling thinking, and LaTeX — a great start for my research journey.<br><br>
+                I believe in doing small things well: maintaining GPA, previewing courses, building projects. Planning and execution matter more than temporary results.
+            ">
+                I'm a first-year Data Science student at Anhui University, member of the Math Modeling Association.<br><br>
+                I participated in the 2026 MCM/ICM as a programmer, and I'm now preparing for the Blue Bridge Cup in April 2026.<br><br>
+                I'm deeply interested in Machine Learning and NLP, and I'm gradually exploring these fields. Math modeling taught me literature search, modeling thinking, and LaTeX — a great start for my research journey.<br><br>
+                I believe in doing small things well: maintaining GPA, previewing courses, building projects. Planning and execution matter more than temporary results.
             </p>
-         </div>
+        </div>
         
-<!-- 研究兴趣（简洁版） -->
-<h2 style="font-size: 1.5rem; font-weight: 600; margin: 2rem 0 1rem; color: #2c3e50; display: flex; align-items: center; gap: 10px;">
-    <span style="color: #8a6fe8; font-size: 1.0rem;"></span> 🔬 兴趣方向
-</h2>
-<ul style="list-style: none; margin: 1rem 0 2rem 0;">
-    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-        <span style="color: #8a6fe8; font-weight: bold; font-size: 1.2rem; position: absolute; left: 0;"></span>
-        机器学习
-    </li>
-    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-        <span style="color: #8a6fe8; font-weight: bold; font-size: 1.2rem; position: absolute; left: 0;"></span>
-       自然语言处理（NLP)
-    </li>
-    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-        <span style="color: #8a6fe8; font-weight: bold; font-size: 1.2rem; position: absolute; left: 0;"></span>
-        计算机视觉（CV)
-    </li>
-    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-        <span style="color: #8a6fe8; font-weight: bold; font-size: 1.2rem; position: absolute; left: 0;"></span>
-        数据挖掘
-    </li>
-</ul>
+        <h2 data-cn="🔬 兴趣方向" data-en="🔬 Interests">🔬 Interests</h2>
+        <ul style="list-style: none; margin: 1rem 0 2rem 0;">
+            <li data-cn="机器学习" data-en="Machine Learning">Machine Learning</li>
+            <li data-cn="自然语言处理 (NLP)" data-en="Natural Language Processing (NLP)">Natural Language Processing (NLP)</li>
+            <li data-cn="计算机视觉 (CV)" data-en="Computer Vision (CV)">Computer Vision (CV)</li>
+            <li data-cn="数据挖掘" data-en="Data Mining">Data Mining</li>
+        </ul>
 
-<!-- 技能清单（分三列） -->
-    <h2>🛠 技能清单</h2>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.5rem 0 2.5rem 0;">
-        <div>
-            <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;">编程语言</div>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.5rem;">C（高级语言程序设计）</li>
-                <li style="margin-bottom: 0.5rem;">Python（基础）</li>
-                <li style="margin-bottom: 0.5rem;">HTML （本页）</li>
-            </ul>
-        </div>
-        <div>
-            <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;">数学/专业</div>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.5rem;">高等数学A</li>
-                <li style="margin-bottom: 0.5rem;">线性代数（预习中）</li>
-                <li style="margin-bottom: 0.5rem;">离散数学（即将学习）</li>
-            </ul>
-        </div>
-        <div>
-            <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;">工具/其他</div>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.5rem;">LaTeX（数模论文）</li>
-                <li style="margin-bottom: 0.5rem;">ppt</li>
-                <li style="margin-bottom: 0.5rem;">word</li>
-            </ul>
-        </div>
-    </div>
-
- <!-- 坐标（带标题） -->
-        <h2 style="margin-bottom: 0.5rem;">📍 坐标</h2>
-        <div style="margin: 0 0 2rem 0; padding: 1.5rem 0; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7;">
-            <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
-                <div>
-                    <div style="font-size: 0.9rem; color: #6b6b8b;">绩点排名</div>
-                    <div style="font-size: 2rem; font-weight: 500; color: #0a0a23;">第10</div>
-                    <div style="font-size: 0.9rem; color: #28a745;">专业174人 · 前6%</div>
-                </div>
-                <div>
-                    <div style="font-size: 0.9rem; color: #6b6b8b;">专业保研率约</div>
-                    <div style="font-size: 2rem; font-weight: 500; color: #0a0a23;">11%</div>
-                    <div style="font-size: 0.9rem; color: #6b6b8b;">目标进前5</div>
-                </div>
+        <h2 data-cn="🛠 技能清单" data-en="🛠 Skills">🛠 Skills</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.5rem 0 2.5rem 0;">
+            <div>
+                <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;" data-cn="编程语言" data-en="Languages">Languages</div>
+                <ul style="list-style: none; padding: 0;">
+                    <li data-cn="C（高级语言程序设计）" data-en="C (Programming)">C (Programming)</li>
+                    <li data-cn="Python（基础）" data-en="Python (Basic)">Python (Basic)</li>
+                    <li data-cn="HTML （本页）" data-en="HTML (This page)">HTML (This page)</li>
+                </ul>
+            </div>
+            <div>
+                <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;" data-cn="数学/专业" data-en="Math">Math</div>
+                <ul style="list-style: none; padding: 0;">
+                    <li data-cn="高等数学A" data-en="Calculus A">Calculus A</li>
+                    <li data-cn="线性代数（预习中）" data-en="Linear Algebra (Preview)">Linear Algebra (Preview)</li>
+                    <li data-cn="离散数学（即将学习）" data-en="Discrete Math (Upcoming)">Discrete Math (Upcoming)</li>
+                </ul>
+            </div>
+            <div>
+                <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;" data-cn="工具/其他" data-en="Tools">Tools</div>
+                <ul style="list-style: none; padding: 0;">
+                    <li data-cn="LaTeX（数模论文）" data-en="LaTeX (Modeling)">LaTeX (Modeling)</li>
+                    <li data-cn="ppt" data-en="PPT">PPT</li>
+                    <li data-cn="word" data-en="Word">Word</li>
+                </ul>
             </div>
         </div>
 
-                
-        <div class="footer">
-            ⚡ 关于我 · 持续更新中
+        <h2 data-cn="📍 坐标" data-en="📍 Stats">📍 Stats</h2>
+        <div style="margin: 0 0 2rem 0; padding: 1.5rem 0; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7;">
+            <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+                <div>
+                    <div style="font-size: 0.9rem; color: #6b6b8b;" data-cn="绩点排名" data-en="GPA Rank">GPA Rank</div>
+                    <div style="font-size: 2rem; font-weight: 500; color: #0a0a23;">10</div>
+                    <div style="font-size: 0.9rem; color: #28a745;" data-cn="专业174人 · 前6%" data-en="174 students · Top 6%">174 students · Top 6%</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.9rem; color: #6b6b8b;" data-cn="专业保研率约" data-en="Recommendation Rate">Recommendation Rate</div>
+                    <div style="font-size: 2rem; font-weight: 500; color: #0a0a23;">11%</div>
+                    <div style="font-size: 0.9rem; color: #6b6b8b;" data-cn="目标进前5" data-en="Target: Top 5">Target: Top 5</div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- 经历页（保持不变） -->
-    <div id="experience" class="page">
-        <h1>📋 经历</h1>
-        <div class="subtitle">竞赛 · 项目 · 学生工作</div>
         
-        <h2>🚩 竞赛</h2>
-        <ul>
-            <li><strong>2026美国大学生数学建模竞赛</strong><br>
-            ├─ 数据预处理（Python/Pandas）<br>
-            ├─ 参与构建预测模型<br>
-            └─ 共同完成25页英文论文撰写</li>
-            <li><strong>蓝桥杯</strong> · 2026年4月参赛，算法备赛中</li>
-            <li><strong>金话筒主持人大赛</strong> · 校三等奖</li>
-        </ul>
-
-        <h2>📌 项目</h2>
-        <ul>
-            <li><strong>Agent制作</strong> · 利用Dify制作了一个校园小助手Agent</li>
-            <li><strong>法学院大创项目</strong> · 跨学科协作成员，以理工科视角参与讨论</li>
-            <li><strong>个人网页</strong> · 独立完成协会选拔页面（就是你正在看的这个）</li>
-        </ul>
-
-        <h2>👥 学生工作</h2>
-        <ul>
-            <li><strong>数模协会成员</strong> · 寒假选拔参与者</li>
-            <li><strong>班级团支书</strong> · 组织团日活动、青年大学习等</li>
-            <li><strong>院文艺部干事</strong> · 参与活动策划与执行</li>
-                    </ul>
-
-        <div class="footer">
-            ⚡ 马逸菲 · 2026
+        <div class="footer" data-cn="⚡ 关于我 · 持续更新中" data-en="⚡ About · Constantly updating">
+            ⚡ About · Constantly updating
         </div>
     </div>
 
-    <!-- 爱好页（保持不变） -->
+    <!-- 经历页（默认英文） -->
+    <div id="experience" class="page">
+        <h1 data-cn="📋 经历" data-en="📋 Experience">📋 Experience</h1>
+        <div class="subtitle" data-cn="竞赛 · 项目 · 学生工作" data-en="Competitions · Projects · Leadership">Competitions · Projects · Leadership</div>
+        
+        <h2 data-cn="🚩 竞赛" data-en="🚩 Competitions">🚩 Competitions</h2>
+        <ul>
+            <li><strong data-cn="2026美国大学生数学建模竞赛" data-en="2026 MCM/ICM">2026 MCM/ICM</strong><br>
+            <span data-cn="├─ 数据预处理（Python/Pandas）" data-en="├─ Data Preprocessing (Python/Pandas)">├─ Data Preprocessing (Python/Pandas)</span><br>
+            <span data-cn="├─ 参与构建预测模型" data-en="├─ Predictive Modeling">├─ Predictive Modeling</span><br>
+            <span data-cn="└─ 共同完成25页英文论文撰写" data-en="└─ 25-page English Paper">└─ 25-page English Paper</span></li>
+            <li><strong data-cn="蓝桥杯" data-en="Blue Bridge Cup">Blue Bridge Cup</strong><span data-cn=" · 2026年4月参赛，算法备赛中" data-en=" · April 2026, Preparing"> · April 2026, Preparing</span></li>
+            <li><strong data-cn="金话筒主持人大赛" data-en="Golden Mic Host Competition">Golden Mic Host Competition</strong><span data-cn=" · 校三等奖" data-en=" · 3rd Prize"> · 3rd Prize</span></li>
+        </ul>
+
+        <h2 data-cn="📌 项目" data-en="📌 Projects">📌 Projects</h2>
+        <ul>
+            <li><strong data-cn="Agent制作" data-en="Agent Development">Agent Development</strong><span data-cn=" · 利用Dify制作了一个校园小助手Agent" data-en=" · Campus Assistant Agent with Dify"> · Campus Assistant Agent with Dify</span></li>
+            <li><strong data-cn="法学院大创项目" data-en="Law School Innovation Project">Law School Innovation Project</strong><span data-cn=" · 跨学科协作成员，以理工科视角参与讨论" data-en=" · Interdisciplinary Member"> · Interdisciplinary Member</span></li>
+            <li><strong data-cn="个人网页" data-en="Personal Website">Personal Website</strong><span data-cn=" · 独立完成协会选拔页面（就是你正在看的这个）" data-en=" · Independent Project (This page)"> · Independent Project (This page)</span></li>
+        </ul>
+
+        <h2 data-cn="👥 学生工作" data-en="👥 Leadership">👥 Leadership</h2>
+        <ul>
+            <li><strong data-cn="数模协会成员" data-en="Math Modeling Association">Math Modeling Association</strong><span data-cn=" · 寒假选拔参与者" data-en=" · Winter Selection Participant"> · Winter Selection Participant</span></li>
+            <li><strong data-cn="班级团支书" data-en="Class League Secretary">Class League Secretary</strong><span data-cn=" · 组织团日活动、青年大学习等" data-en=" · Organize activities"> · Organize activities</span></li>
+            <li><strong data-cn="院文艺部干事" data-en="Arts Department">Arts Department</strong><span data-cn=" · 参与活动策划与执行" data-en=" · Event Planning"> · Event Planning</span></li>
+        </ul>
+
+        <div class="footer" data-cn="⚡ 马逸菲 · 2026" data-en="⚡ Ma Yifei · 2026">
+            ⚡ Ma Yifei · 2026
+        </div>
+    </div>
+
+    <!-- 爱好页（默认英文） -->
     <div id="hobby" class="page">
-        <h1>🎨 爱好</h1>
-        <div class="subtitle">一些让大脑重启&让我活过来的事情</div>
+        <h1 data-cn="🎨 爱好" data-en="🎨 Hobbies">🎨 Hobbies</h1>
+        <div class="subtitle" data-cn="一些让大脑重启&让我活过来的事情" data-en="Things that recharge me">Things that recharge me</div>
         
         <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 2rem 0;">
-            <span class="tag">🎹 钢琴</span>
-            <span class="tag">🏸 羽毛球</span>
-            <span class="tag">🎧 听音乐</span>
-            <span class="tag">🎬 看电影</span>
-            <span class="tag">🔭 观星</span>
-            <span class="tag">🚲 瞎逛</span>
+            <span class="tag" data-cn="🎹 钢琴" data-en="🎹 Piano">🎹 Piano</span>
+            <span class="tag" data-cn="🏸 羽毛球" data-en="🏸 Badminton">🏸 Badminton</span>
+            <span class="tag" data-cn="🎧 听音乐" data-en="🎧 Music">🎧 Music</span>
+            <span class="tag" data-cn="🎬 看电影" data-en="🎬 Movies">🎬 Movies</span>
+            <span class="tag" data-cn="🔭 观星" data-en="🔭 Stargazing">🔭 Stargazing</span>
+            <span class="tag" data-cn="🚲 瞎逛" data-en="🚲 Wandering">🚲 Wandering</span>
         </div>
 
-        <p style="color: #6b6b8b; font-size: 1.1rem; margin: 3rem 0; padding: 1.5rem 0; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7;">
-            🙂如果没在写代码，那多半是在球场、琴房、或者躺着听歌。
+        <p style="color: #6b6b8b; font-size: 1.1rem; margin: 3rem 0; padding: 1.5rem 0; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7;" data-cn="🙂如果没在写代码，那多半是在球场、琴房、或者躺着听歌。" data-en="🙂 If not coding, I'm on the court, at the piano, or lying down listening to music.">
+            🙂 If not coding, I'm on the court, at the piano, or lying down listening to music.
         </p>
 
-  <!-- 可以再加一些个人向的东西 -->
-        <h2>✨ 一些小事</h2>
+        <h2 data-cn="✨ 一些小事" data-en="✨ Little Things">✨ Little Things</h2>
         <ul>
-            <li>喜欢跟朋友一起唱歌</li>
-            <li>有些热衷于了解MBTI，是个enfp</li>
-            <li>乐于学习，喜欢探索一切让我感兴趣的东西</li>
-            <li>觉得“把代码跑通”是超级爽的事</li>
+            <li data-cn="喜欢跟朋友一起唱歌" data-en="Singing with friends">Singing with friends</li>
+            <li data-cn="有些热衷于了解MBTI，是个enfp" data-en="ENFP, obsessed with MBTI">ENFP, obsessed with MBTI</li>
+            <li data-cn="乐于学习，喜欢探索一切让我感兴趣的东西" data-en="Love learning and exploring">Love learning and exploring</li>
+            <li data-cn="觉得“把代码跑通”是超级爽的事" data-en="'Code runs' = pure joy">'Code runs' = pure joy</li>
         </ul>
 
-
-        <div class="footer">
-            ⚡ 欢迎约球 · 欢迎推荐歌单 · 欢迎一起看星星
+        <div class="footer" data-cn="⚡ 欢迎约球 · 欢迎推荐歌单 · 欢迎一起看星星" data-en="⚡ Badminton? Playlists? Stargazing? Let's go!">
+            ⚡ Badminton? Playlists? Stargazing? Let's go!
         </div>
     </div>
 
-    <!-- 荣誉页（留白版） -->
+    <!-- 荣誉页（留白版，默认英文） -->
     <div id="honor" class="page">
-        <h1>🏆 荣誉</h1>
-        <div class="subtitle">正在积累中，敬请期待</div>
+        <h1 data-cn="🏆 荣誉" data-en="🏆 Honors">🏆 Honors</h1>
+        <div class="subtitle" data-cn="正在积累中，敬请期待" data-en="In progress, stay tuned">In progress, stay tuned</div>
         
         <div style="background: #faf9fc; border-radius: 24px; padding: 4rem 2rem; margin: 3rem 0; text-align: center; border: 2px dashed #d0c9e0;">
             <div style="font-size: 3rem; margin-bottom: 1.5rem; opacity: 0.5;">✨</div>
-            <p style="font-size: 1.2rem; color: #6b6b8b; max-width: 500px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; color: #6b6b8b; max-width: 500px; margin: 0 auto;" data-cn="
                 荣誉墙建设中…<br>
                 等拿到值得放在这里的奖，我会第一时间更新它。
+            " data-en="
+                Under construction...<br>
+                I'll update this when I have achievements worth putting here.
+            ">
+                Under construction...<br>
+                I'll update this when I have achievements worth putting here.
             </p>
         </div>
 
-        <div class="footer">
-            ⚡ 现在空着，是为了以后放更值得的东西
+        <div class="footer" data-cn="⚡ 现在空着，是为了以后放更值得的东西" data-en="⚡ Left blank for now, for better things later">
+            ⚡ Left blank for now, for better things later
         </div>
     </div>
 
-    <!-- 切换页面的JS -->
+    <!-- 切换页面的JS + 语言切换JS -->
     <script>
+        let currentLang = 'en';  // 默认英文
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'cn' ? 'en' : 'cn';
+            document.querySelector('.lang-switch').textContent = currentLang === 'cn' ? '🌐 EN' : '🌐 中';
+            
+            document.querySelectorAll('[data-cn]').forEach(el => {
+                if (currentLang === 'cn') {
+                    el.innerHTML = el.getAttribute('data-cn');
+                } else {
+                    el.innerHTML = el.getAttribute('data-en');
+                }
+            });
+        }
+
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
