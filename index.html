@@ -7,100 +7,249 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            background: #faf9fc; 
-            color: #1e1e2f; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f5f2f8; 
+            color: #1a1a2c; 
             line-height: 1.6; 
         }
         
-        /* 导航栏 */
+        /* 导航栏 - 更通透 */
         .navbar {
-            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
             padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
             display: flex;
             gap: 2rem;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #f0ebfa;
+            border-bottom: 1px solid rgba(138, 111, 232, 0.1);
             position: relative;
         }
         .nav-link {
             text-decoration: none;
             color: #4a4a6a;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            transition: all 0.2s;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
         .nav-link:hover {
-            background: #f0ebfa;
-            color: #0a0a23;
+            background: rgba(138, 111, 232, 0.08);
+            color: #8a6fe8;
         }
         .nav-link.active {
             background: #8a6fe8;
             color: white;
+            box-shadow: 0 4px 10px rgba(138, 111, 232, 0.3);
         }
         
         /* 语言切换按钮 */
         .lang-switch {
             position: absolute;
             right: 2rem;
-            background: #f0ebfa;
-            border: none;
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
+            background: white;
+            border: 1px solid rgba(138, 111, 232, 0.2);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
             font-size: 0.9rem;
             font-weight: 500;
             color: #4a4a6a;
             cursor: pointer;
             transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .lang-switch:hover {
             background: #8a6fe8;
             color: white;
+            border-color: #8a6fe8;
+            box-shadow: 0 4px 12px rgba(138, 111, 232, 0.2);
         }
         
-        /* 页面容器 */
+        /* 页面容器 - 更透的卡片 */
         .page {
-            max-width: 900px;
-            margin: 2rem auto;
+            max-width: 1000px;
+            margin: 2.5rem auto;
             background: white;
-            border-radius: 32px;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
-            padding: 2.5rem;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05), 0 0 0 1px rgba(138, 111, 232, 0.03);
+            padding: 3rem;
             display: none;
         }
         .page.active {
             display: block;
         }
         
-        /* 样式复用 */
-        h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.25rem; color: #0a0a23; }
-        .subtitle { font-size: 1.2rem; color: #4a4a6a; margin-bottom: 2rem; border-bottom: 2px solid #eae6f2; padding-bottom: 1.5rem; }
-        h2 { font-size: 1.5rem; font-weight: 600; margin: 2rem 0 1rem; color: #2c3e50; display: flex; align-items: center; gap: 10px; }
-        h2:before { content: "▍"; color: #8a6fe8; font-size: 1.8rem; }
+        /* 样式复用 - 更细腻 */
+        h1 { 
+            font-size: 2.8rem; 
+            font-weight: 600; 
+            margin-bottom: 0.25rem; 
+            color: #1a1a2c;
+            letter-spacing: -0.02em;
+        }
+        .subtitle { 
+            font-size: 1.2rem; 
+            color: #6b6b8b; 
+            margin-bottom: 2.5rem; 
+            border-bottom: 1px solid rgba(138, 111, 232, 0.1); 
+            padding-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        h2 { 
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            margin: 2.5rem 0 1.2rem; 
+            color: #2c3e50; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        h2:before { 
+            content: "▍"; 
+            color: #8a6fe8; 
+            font-size: 1.8rem; 
+            opacity: 0.8;
+        }
+        
+        /* 列表样式 - 更精致 */
         ul { list-style: none; }
-        li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
-        li:before { content: "•"; color: #8a6fe8; font-weight: bold; font-size: 1.5rem; position: absolute; left: 0; top: -0.3rem; }
+        li { 
+            margin-bottom: 0.8rem; 
+            padding-left: 1.8rem; 
+            position: relative;
+            color: #2c3e50;
+        }
+        li:before { 
+            content: "•"; 
+            color: #8a6fe8; 
+            font-weight: 400; 
+            font-size: 1.3rem; 
+            position: absolute; 
+            left: 0; 
+            top: -0.2rem;
+            opacity: 0.7;
+        }
+        
+        /* 标签 - 更柔和 */
         .tag { 
             display: inline-block; 
-            background: #f0ebfa; 
-            padding: 0.4rem 1.2rem; 
-            border-radius: 50px; 
+            background: rgba(138, 111, 232, 0.06); 
+            padding: 0.5rem 1.5rem; 
+            border-radius: 40px; 
             font-size: 0.95rem;
-            margin: 0.25rem;
-            color: #1e1e2f;
+            margin: 0.3rem;
+            color: #4a4a6a;
+            border: 1px solid rgba(138, 111, 232, 0.1);
+            transition: all 0.2s;
         }
-        .footer { margin-top: 3rem; text-align: center; color: #6b6b8b; font-size: 0.9rem; border-top: 1px solid #edf2f7; padding-top: 2rem; }
+        .tag:hover {
+            background: rgba(138, 111, 232, 0.1);
+            border-color: rgba(138, 111, 232, 0.2);
+        }
         
-        /* 照片样式 */
+        .footer { 
+            margin-top: 3.5rem; 
+            text-align: center; 
+            color: #8a8aa0; 
+            font-size: 0.9rem; 
+            border-top: 1px solid rgba(138, 111, 232, 0.1); 
+            padding-top: 2rem;
+            font-weight: 400;
+        }
+        
+        /* 照片样式 - 加一点光环 */
         .profile-img {
             width: 160px;
             height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #f0ebfa;
+            border: 3px solid white;
+            box-shadow: 0 10px 25px -5px rgba(138, 111, 232, 0.2), 0 0 0 1px rgba(138, 111, 232, 0.1);
+        }
+        
+        /* 紫色卡片 - 更浅更透 */
+        .purple-card {
+            background: rgba(138, 111, 232, 0.04);
+            border-radius: 28px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(138, 111, 232, 0.1);
+            backdrop-filter: blur(2px);
+        }
+        
+        /* 技能清单网格 - 更整齐 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0 2.5rem 0;
+        }
+        .skill-category {
+            background: rgba(138, 111, 232, 0.02);
+            padding: 1.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(138, 111, 232, 0.08);
+        }
+        .skill-category h3 {
+            font-weight: 600;
+            color: #8a6fe8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-category li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            color: #4a4a6a;
+        }
+        .skill-category li:before {
+            content: "▹";
+            color: #8a6fe8;
+            font-size: 1rem;
+            left: 0;
+            top: -0.1rem;
+            opacity: 0.6;
+        }
+        
+        /* 坐标卡片 - 更简洁 */
+        .stats-box {
+            margin: 2rem 0 2.5rem 0;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(to right, rgba(138, 111, 232, 0.02), transparent);
+            border-radius: 32px;
+            border: 1px solid rgba(138, 111, 232, 0.08);
+        }
+        .stats-row {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #8a8aa0;
+            margin-bottom: 0.3rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #1a1a2c;
+            line-height: 1.2;
+        }
+        .stat-desc {
+            font-size: 0.9rem;
+            color: #28a745;
+            margin-top: 0.3rem;
         }
     </style>
 </head>
@@ -112,29 +261,27 @@
         <a href="#" class="nav-link" onclick="switchPage('experience')" data-cn="📋 经历" data-en="📋 Experience">📋 Experience</a>
         <a href="#" class="nav-link" onclick="switchPage('hobby')" data-cn="🎨 爱好" data-en="🎨 Hobby">🎨 Hobby</a>
         <a href="#" class="nav-link" onclick="switchPage('honor')" data-cn="🏆 荣誉" data-en="🏆 Honor">🏆 Honor</a>
-        
-        <!-- 语言切换按钮（默认显示“中”因为当前是英文） -->
         <button class="lang-switch" onclick="toggleLanguage()">🌐 中</button>
     </div>
 
-    <!-- 首页（默认英文） -->
+    <!-- 首页 -->
     <div id="home" class="page active">
-        <div style="display: flex; align-items: center; gap: 3.0rem; margin-bottom: 2.0rem;">
+        <div style="display: flex; align-items: center; gap: 3.5rem; margin-bottom: 2rem;">
             <div>
                 <img src="me.jpg" alt="Ma Yifei" class="profile-img">
             </div>            
             <div>
-                <h1 style="margin-bottom: 0.2rem;" data-cn="Hi, I'm 马逸菲" data-en="Hi, I'm Ma Yifei">Hi, I'm Ma Yifei</h1>
-                <div style="font-size: 1.1rem; color:#6b6b8b ; margin-bottom: 0.3rem;" data-cn="🎓 安徽大学数学建模协会 · 成员" data-en="🎓 Anhui University Math Modeling Association · Member">🎓 Anhui University Math Modeling Association · Member</div>
-                <div style="font-size: 1rem; color: #6b6b8b;" data-cn="安徽大学大数据与统计学院 · 数据科学与大数据技术专业" data-en="School of Big Data & Statistics · Data Science and Big Data Technology">School of Big Data & Statistics · Data Science and Big Data Technology</div>
+                <h1 style="margin-bottom: 0.3rem;" data-cn="Hi, I'm 马逸菲" data-en="Hi, I'm Ma Yifei">Hi, I'm Ma Yifei</h1>
+                <div style="font-size: 1.1rem; color:#6b6b8b; margin-bottom: 0.4rem;" data-cn="🎓 安徽大学数学建模协会 · 成员" data-en="🎓 Anhui University Math Modeling Association · Member">🎓 Anhui University Math Modeling Association · Member</div>
+                <div style="font-size: 1rem; color: #8a8aa0;" data-cn="安徽大学大数据与统计学院 · 数据科学与大数据技术专业" data-en="School of Big Data & Statistics · Data Science and Big Data Technology">School of Big Data & Statistics · Data Science and Big Data Technology</div>
             </div>
         </div>
         
-        <div style="margin: 1rem 0 2rem 0; display: flex; gap: 2rem; flex-wrap: wrap; color: #4a4a6a; border-bottom: 1px solid #edf2f7; padding-bottom: 1.5rem;">
+        <div style="margin: 1.5rem 0 2.5rem 0; color: #6b6b8b; border-bottom: 1px solid rgba(138, 111, 232, 0.1); padding-bottom: 1.5rem;">
             <span>📧 2565715275@qq.com</span>
         </div>
         
-        <div style="text-align: center; margin: 2rem 0 1rem 0; color: #8a6fe8; font-style: italic;" data-cn="“Hakuna Matata.”🦁" data-en="“Hakuna Matata.”🦁">
+        <div style="text-align: center; margin: 2.5rem 0 1.5rem 0; color: #8a6fe8; font-style: italic; font-size: 1.2rem; opacity: 0.9;" data-cn="“Hakuna Matata.”🦁" data-en="“Hakuna Matata.”🦁">
             “Hakuna Matata.”🦁
         </div>
 
@@ -143,14 +290,13 @@
         </div>
     </div>
 
-    <!-- 关于我页（默认英文） -->
+    <!-- 关于我页 -->
     <div id="about" class="page">
         <h1 data-cn="📌 关于我" data-en="📌 About Me">📌 About Me</h1>
         <div class="subtitle" data-cn="完整版 · 不止是简历" data-en="More than a resume">More than a resume</div>
         
-        <h2 style="margin-bottom: 0.5rem;" data-cn="😉摘要" data-en="😉 Summary">😉 Summary</h2>
-        <div style="background: #f7f5fc; border-radius: 20px; padding: 1.5rem; margin: 0.5rem 0 2rem 0;">
-            <p style="font-size: 1rem; line-height: 1.7; color: #1e1e2f;" data-cn="
+        <div class="purple-card">
+            <p style="font-size: 1rem; line-height: 1.8; color: #2c3e50;" data-cn="
                 我是安徽大学25级数据科学与大数据技术专业的学生，是校数学建模协会的成员。<br><br>
                 在竞赛方面，我以大一新生的身份参与了2026美国大学生数学建模竞赛，担任编程手。目前正在备战2026年4月的蓝桥杯。<br><br>
                 我对机器学习，自然语言处理等方向有浓厚的兴趣，目前正在逐步深入了解，期待未来能做出真正有用的东西。在数学建模中，我与队友一起作战，习得文献检索能力、培养建模思维、学习LaTeX技能，这让我对未来的研究充满期待。<br><br>
@@ -169,7 +315,7 @@
         </div>
         
         <h2 data-cn="🔬 兴趣方向" data-en="🔬 Interests">🔬 Interests</h2>
-        <ul style="list-style: none; margin: 1rem 0 2rem 0;">
+        <ul style="margin: 1rem 0 2rem 0;">
             <li data-cn="机器学习" data-en="Machine Learning">Machine Learning</li>
             <li data-cn="自然语言处理 (NLP)" data-en="Natural Language Processing (NLP)">Natural Language Processing (NLP)</li>
             <li data-cn="计算机视觉 (CV)" data-en="Computer Vision (CV)">Computer Vision (CV)</li>
@@ -177,26 +323,26 @@
         </ul>
 
         <h2 data-cn="🛠 技能清单" data-en="🛠 Skills">🛠 Skills</h2>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.5rem 0 2.5rem 0;">
-            <div>
-                <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;" data-cn="编程语言" data-en="Languages">Languages</div>
-                <ul style="list-style: none; padding: 0;">
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 data-cn="编程语言" data-en="Languages">Languages</h3>
+                <ul>
                     <li data-cn="C（高级语言程序设计）" data-en="C (Programming)">C (Programming)</li>
                     <li data-cn="Python（基础）" data-en="Python (Basic)">Python (Basic)</li>
                     <li data-cn="HTML （本页）" data-en="HTML (This page)">HTML (This page)</li>
                 </ul>
             </div>
-            <div>
-                <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;" data-cn="数学/专业" data-en="Math">Math</div>
-                <ul style="list-style: none; padding: 0;">
+            <div class="skill-category">
+                <h3 data-cn="数学/专业" data-en="Math">Math</h3>
+                <ul>
                     <li data-cn="高等数学A" data-en="Calculus A">Calculus A</li>
                     <li data-cn="线性代数（预习中）" data-en="Linear Algebra (Preview)">Linear Algebra (Preview)</li>
                     <li data-cn="离散数学（即将学习）" data-en="Discrete Math (Upcoming)">Discrete Math (Upcoming)</li>
                 </ul>
             </div>
-            <div>
-                <div style="font-weight: 600; color: #8a6fe8; margin-bottom: 0.8rem;" data-cn="工具/其他" data-en="Tools">Tools</div>
-                <ul style="list-style: none; padding: 0;">
+            <div class="skill-category">
+                <h3 data-cn="工具/其他" data-en="Tools">Tools</h3>
+                <ul>
                     <li data-cn="LaTeX（数模论文）" data-en="LaTeX (Modeling)">LaTeX (Modeling)</li>
                     <li data-cn="ppt" data-en="PPT">PPT</li>
                     <li data-cn="word" data-en="Word">Word</li>
@@ -205,17 +351,17 @@
         </div>
 
         <h2 data-cn="📍 坐标" data-en="📍 Stats">📍 Stats</h2>
-        <div style="margin: 0 0 2rem 0; padding: 1.5rem 0; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7;">
-            <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
-                <div>
-                    <div style="font-size: 0.9rem; color: #6b6b8b;" data-cn="绩点排名" data-en="GPA Rank">GPA Rank</div>
-                    <div style="font-size: 2rem; font-weight: 500; color: #0a0a23;">10</div>
-                    <div style="font-size: 0.9rem; color: #28a745;" data-cn="专业174人 · 前6%" data-en="174 students · Top 6%">174 students · Top 6%</div>
+        <div class="stats-box">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-label" data-cn="绩点排名" data-en="GPA Rank">GPA Rank</div>
+                    <div class="stat-number">10</div>
+                    <div class="stat-desc" data-cn="专业174人 · 前6%" data-en="174 students · Top 6%">174 students · Top 6%</div>
                 </div>
-                <div>
-                    <div style="font-size: 0.9rem; color: #6b6b8b;" data-cn="专业保研率约" data-en="Recommendation Rate">Recommendation Rate</div>
-                    <div style="font-size: 2rem; font-weight: 500; color: #0a0a23;">11%</div>
-                    <div style="font-size: 0.9rem; color: #6b6b8b;" data-cn="目标进前5" data-en="Target: Top 5">Target: Top 5</div>
+                <div class="stat-item">
+                    <div class="stat-label" data-cn="专业保研率约" data-en="Recommendation Rate">Recommendation Rate</div>
+                    <div class="stat-number">11%</div>
+                    <div class="stat-desc" data-cn="目标进前5" data-en="Target: Top 5">Target: Top 5</div>
                 </div>
             </div>
         </div>
@@ -225,7 +371,7 @@
         </div>
     </div>
 
-    <!-- 经历页（默认英文） -->
+    <!-- 经历页（你的完整内容） -->
     <div id="experience" class="page">
         <h1 data-cn="📋 经历" data-en="📋 Experience">📋 Experience</h1>
         <div class="subtitle" data-cn="竞赛 · 项目 · 学生工作" data-en="Competitions · Projects · Leadership">Competitions · Projects · Leadership</div>
@@ -259,7 +405,7 @@
         </div>
     </div>
 
-    <!-- 爱好页（默认英文） -->
+    <!-- 爱好页（你的完整内容） -->
     <div id="hobby" class="page">
         <h1 data-cn="🎨 爱好" data-en="🎨 Hobbies">🎨 Hobbies</h1>
         <div class="subtitle" data-cn="一些让大脑重启&让我活过来的事情" data-en="Things that recharge me">Things that recharge me</div>
@@ -273,7 +419,7 @@
             <span class="tag" data-cn="🚲 瞎逛" data-en="🚲 Wandering">🚲 Wandering</span>
         </div>
 
-        <p style="color: #6b6b8b; font-size: 1.1rem; margin: 3rem 0; padding: 1.5rem 0; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7;" data-cn="🙂如果没在写代码，那多半是在球场、琴房、或者躺着听歌。" data-en="🙂 If not coding, I'm on the court, at the piano, or lying down listening to music.">
+        <p style="color: #6b6b8b; font-size: 1.1rem; margin: 3rem 0; padding: 1.5rem 0; border-top: 1px solid rgba(138, 111, 232, 0.1); border-bottom: 1px solid rgba(138, 111, 232, 0.1);" data-cn="🙂如果没在写代码，那多半是在球场、琴房、或者躺着听歌。" data-en="🙂 If not coding, I'm on the court, at the piano, or lying down listening to music.">
             🙂 If not coding, I'm on the court, at the piano, or lying down listening to music.
         </p>
 
@@ -290,14 +436,14 @@
         </div>
     </div>
 
-    <!-- 荣誉页（留白版，默认英文） -->
+    <!-- 荣誉页（你的完整内容） -->
     <div id="honor" class="page">
         <h1 data-cn="🏆 荣誉" data-en="🏆 Honors">🏆 Honors</h1>
         <div class="subtitle" data-cn="正在积累中，敬请期待" data-en="In progress, stay tuned">In progress, stay tuned</div>
         
-        <div style="background: #faf9fc; border-radius: 24px; padding: 4rem 2rem; margin: 3rem 0; text-align: center; border: 2px dashed #d0c9e0;">
+        <div style="background: rgba(138, 111, 232, 0.02); border-radius: 32px; padding: 4rem 2rem; margin: 3rem 0; text-align: center; border: 2px dashed rgba(138, 111, 232, 0.2);">
             <div style="font-size: 3rem; margin-bottom: 1.5rem; opacity: 0.5;">✨</div>
-            <p style="font-size: 1.2rem; color: #6b6b8b; max-width: 500px; margin: 0 auto;" data-cn="
+            <p style="font-size: 1.2rem; color: #8a8aa0; max-width: 500px; margin: 0 auto;" data-cn="
                 荣誉墙建设中…<br>
                 等拿到值得放在这里的奖，我会第一时间更新它。
             " data-en="
@@ -314,9 +460,8 @@
         </div>
     </div>
 
-    <!-- 切换页面的JS + 语言切换JS -->
     <script>
-        let currentLang = 'en';  // 默认英文
+        let currentLang = 'en';
 
         function toggleLanguage() {
             currentLang = currentLang === 'cn' ? 'en' : 'cn';
